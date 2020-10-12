@@ -1,0 +1,46 @@
+﻿@model List<BlogItem>
+
+<section class="our-blog-section ptb-100 gray-light-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="section-heading mb-5">
+                    <h2>Our Latest News</h2>
+                    <p class="lead">
+                        Enthusiastically drive revolutionary opportunities before emerging leadership. Distinctively
+                        transform tactical methods of empowerment via resource.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            @foreach (var blg in Model)
+            {
+                <div class="col-md-6 col-lg-4">
+                    <div class="single-blog-card card border-0 shadow-sm">
+                        <div class="blog-img">
+                            <a href="#"><span class="category position-absolute">@blg.BlogType</span></a>
+                            <a href="#"><img src="~/Assets/img/blog/@blg.Photo" class="card-img-top position-relative img-fluid" alt="blog"></a>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="h5 mb-2 card-title"><a href="#">@blg.Name</a></h3>
+                            <p class="card-text">@blg.Content</p>
+                        </div>
+                        <div class="card-footer border-0 d-flex align-items-center justify-content-between">
+                            <div class="author-meta d-flex align-items-center">
+                                <span class="fa fa-user mr-2 p-3 bg-white rounded-circle border"></span>
+                                <div class="author-content">
+                                    <a href="#" class="d-block">ThemeTags</a>
+                                    <small>@blg.AddedDate.ToString("MMM.dd.yyyy")</small>
+                                </div>
+                            </div>
+                            <div class="author-like">
+                                <a href="#"><span class="fa fa-share-alt"></span> 50</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

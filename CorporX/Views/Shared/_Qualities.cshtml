@@ -1,0 +1,48 @@
+﻿@model List<Project>
+<section class="our-portfolio-section ptb-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="section-heading text-center mb-5">
+                    <h2>Check Our Quality Work</h2>
+                    <p class="lead">
+                        Dynamically pursue reliable convergence rather than 24/7 process improvements. Intrinsicly
+                        develop end-to-end customer service without extensive data.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center pb-2">
+                    <button type="button" class="filter-btn" data-mixitup-control data-filter="all">All</button>
+                    <button type="button" class="filter-btn" data-mixitup-control data-filter=".branding">Branding</button>
+                    <button type="button" class="filter-btn" data-mixitup-control data-filter=".animation">Animation</button>
+                    <button type="button" class="filter-btn" data-mixitup-control data-filter=".other">Others</button>
+                </div>
+                <div class="portfolio-container" id="MixItUp">
+                    @foreach (var prj in @Model)
+                    {
+                        <div class="mix portfolio-item @prj.Category" data-ref="mixitup-target">
+                            <div class="portfolio-wrapper">
+                                <a href="project-details.html" target="_blank">
+                                    <div class="content-overlay"></div>
+                                    <img class="img-fluid" src="~/Assets/img/portfolios/@prj.Photo " alt="portfolio" />
+                                    <div class="content-details fadeIn-bottom text-white">
+                                        <h5 class="text-white mb-1">Creative @prj.Name </h5>
+                                        <p>@prj.Content </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    }
+
+
+                    <div class="gap"></div>
+                    <div class="gap"></div>
+                    <div class="gap"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,50 @@
+﻿@model List<Client>
+<section class="testimonial-section ptb-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-9 col-lg-8">
+                <div class="section-heading mb-5 text-center">
+                    <h2>Testimonials What Clients Say</h2>
+                    <p class="lead">
+                        Rapidiously morph transparent internal or "organic" sources whereas resource sucking
+                        e-business. Conveniently innovate compelling internal.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <div class="owl-carousel owl-theme client-testimonial custom-arrow custom-arrow-bottom-center mb-5">
+                    @foreach (var clt in Model)
+                    {
+                        <div class="item">
+                            <div class="testimonial-single shadow-sm gray-light-bg rounded p-4">
+                                <blockquote>
+                                    @clt.Content
+                                </blockquote>
+                                <div class="client-img d-flex align-items-center justify-content-between pt-4">
+                                    <div class="d-flex align-items-center">
+                                        <img src="~/Assets/img/@clt.Photo" alt="client" width="50" class="img-fluid rounded-circle shadow-sm mr-3" />
+                                        <div class="client-info">
+                                            <h5 class="mb-0">@clt.Name</h5>
+                                            <small class="mb-0">@clt.Position</small>
+                                        </div>
+                                    </div>
+                                    <div class="client-ratting">
+                                        <ul class="list-inline client-ratting-list">
+                                            @for (int i = 0; i < @clt.Star; i++)
+                                            {
+                                                <li class="list-inline-item"><span class="fas fa-star ratting-color"></span></li>
+                                            }
+                                        </ul>
+                                        <span class="font-weight-bold">5.0 <small class="font-weight-lighter">Out of 5</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

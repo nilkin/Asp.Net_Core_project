@@ -1,0 +1,105 @@
+﻿@model AboutUsViewModel
+@{
+    ViewData["Title"] = "AboutUs";
+    Layout = "~/Views/Shared/_LayoutSecond.cshtml";
+}
+
+<!--body content wrap start-->
+<div class="main">
+    <!--header section start-->
+    <partial name="_Header" model="@Model.Breadcrumb" />
+    <!--header section end-->
+    <!--promo section start-->
+    <section class="promo-section pt-100">
+        <div class="container">
+            <div class="row">
+                @foreach (var prom in @Model.Promos)
+                {
+                    <div class="col-md-4 col-lg-4">
+                        <div class="single-promo-block p-3 rounded d-flex justify-content-between">
+                            <div class="promo-block-icon mr-4">
+                                <span class="@prom.Icon icon-md color-primary"></span>
+                            </div>
+                            <div class="promo-block-content">
+                                <h5>@prom.Name</h5>
+                                <p>@prom.Content</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+    <!--promo section end-->
+    <!--about us section start-->
+    <section class="about-us-section ptb-100">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-12 col-lg-5">
+                    <div class="video-promo-content mb-md-4 mb-lg-0">
+                        <h2>Our Mission & Vission</h2>
+                        @Html.Raw(Model.Abouts.Context)
+                        <div class="action-btns mt-4">
+                            <a href="#" class="btn primary-solid-btn mr-2">View Our Services</a>
+                            <a href="#" class="btn outline-btn">Contact Us</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12 col-lg-6">
+                    <div class="card border-0 shadow-sm text-white">
+                        <img src="~/Assets/img/@Model.Abouts.Photo" alt="video" class="img-fluid rounded shadow-sm">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--about us section end-->
+    <!--our work process section start-->
+    <section class="work-process-new ptb-100 gray-light-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-9 col-lg-8">
+                    <div class="section-heading text-center mb-5">
+                        <h2>We Deliver Our Services Few Process</h2>
+                        <p class="lead">
+                            Distinctively grow go forward manufactured products and optimal networks. Enthusiastically
+                            disseminate outsourcing through revolutionary.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="work-process-wrap text-center">
+                        @foreach (var dlvr in Model.Deliver)
+                        {
+                            <div class="single-work-process">
+                                <div class="work-process-icon-wrap secondary-bg rounded-circle">
+                                    <i class="@dlvr.Icon icon-md text-white"></i>
+                                    <span class="process-step primary-bg text-white shadow-sm">@dlvr.Id</span>
+                                </div>
+                                <div class="work-process-content mt-4">
+                                    <h5>@dlvr.Name</h5>
+                                    <p>@dlvr.Content</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--our work process section end-->
+    <!--team two section start-->
+    <partial name="_Team" model="@Model.Members" />
+    <!--team two section end-->
+    <!--testimonial section start-->
+    <partial name="_Testimonial" model="@Model.Clients"/>
+    <!--testimonial section end-->
+    <!--client section start-->
+    <partial name="_Clients" model="@Model.Partners" />
+    <!--client section start-->
+
+</div>
+<!--body content wrap end-->

@@ -1,0 +1,18 @@
+﻿@model BlogItemsViewModel
+@{
+    ViewData["Title"] = "Grid";
+    Layout = "~/Views/Shared/_LayoutSecond.cshtml";
+}
+
+<!--body content wrap start-->
+<div class="main">
+
+    <!--header section start-->
+    <partial name="_Header" model="@Model.Breadcrumb" />
+    <!--header section end-->
+    <!--blog section start-->
+    <partial name="_Blogs" model="@Model.BlogItems"/>
+    <!--blog section end-->
+
+</div>
+<!--body content wrap end-->

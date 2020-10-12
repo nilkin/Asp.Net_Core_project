@@ -1,0 +1,110 @@
+﻿@model FaqViewModel
+@{
+    ViewData["Title"] = "Fag";
+    Layout = "~/Views/Shared/_LayoutSecond.cshtml";
+    int count = 1;
+}
+
+<!--body content wrap start-->
+<div class="main">
+
+    <!--header section start-->
+    <partial name="_Header" model="@Model.Breadcrumb" />
+    <!--header section end-->
+    <!--promo section start-->
+    <section class="promo-section ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-9">
+                    <div class="section-heading mb-5">
+                        <h2>Frequently Asked Questions</h2>
+                        <p class="lead">
+                            Quickly morph client-centric results through performance based applications. Proactively facilitate professional human capital for cutting-edge.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--pricing faq start-->
+            <div class="row">
+                <div class="col-lg-6">
+                    <div id="accordion-1" class="accordion accordion-faq">
+                        @foreach (var faq in Model.Fags.Take(3))
+                        {
+                            <!-- Accordion card @count -->
+                            <div class="card">
+                                <div class="card-header py-4" id="heading-1-@count" data-toggle="collapse" role="button"
+                                     data-target="#collapse-1-@count" aria-expanded="false" aria-controls="collapse-1-@count">
+                                    <h6 class="mb-0"><span class="@faq.Icon mr-3"></span> @faq.Question</h6>
+                                </div>
+                                <div id="collapse-1-@count" class="collapse" aria-labelledby="heading-1-@count"
+                                     data-parent="#accordion-1">
+                                    <div class="card-body">
+                                        <p>@faq.Ask</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="d-none">@(count++)</p>
+                        }
+
+
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div id="accordion-2" class="accordion accordion-faq">
+                        @foreach (var faq in Model.Fags.Skip(3).Take(3))
+                        {
+                            <!-- Accordion card @count -->
+                            <div class="card">
+                                <div class="card-header py-4" id="heading-2-@count" data-toggle="collapse" role="button"
+                                     data-target="#collapse-2-@count" aria-expanded="false" aria-controls="collapse-2-@count">
+                                    <h6 class="mb-0"><span class="@faq.Icon mr-3"></span> @faq.Question</h6>
+                                </div>
+                                <div id="collapse-2-@count" class="collapse" aria-labelledby="heading-2-@count"
+                                     data-parent="#accordion-1">
+                                    <div class="card-body">
+                                        <p>@faq.Ask</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="d-none">@(count++)</p>
+                        }
+                    </div>
+                </div>
+            </div>
+            <!--pricing faq end-->
+        </div>
+    </section>
+    <!--promo section end-->
+
+    <section class="gray-light-bg ptb-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-9 col-lg-8">
+                    <div class="section-heading mb-3 text-center">
+                        <h2>Frequently Asked Questions</h2>
+                        <p class="lead">
+                            Quickly morph client-centric results through performance based applications. Proactively facilitate professional human capital for cutting-edge.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @foreach (var faq in Model.Fags.Skip(6))
+                {
+                    <div class="col-md-6">
+                        <div class="single-faq mt-4">
+                            <h5>@faq.Question</h5>
+                            <p>
+                               @faq.Ask </p>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </section>
+
+
+</div>
+<!--body content wrap end-->

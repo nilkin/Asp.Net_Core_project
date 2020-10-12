@@ -1,0 +1,64 @@
+﻿@model List<Member>
+<section class="team-two-section ptb-100 gray-light-bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-8">
+                <div class="section-heading text-center mb-5">
+                    <h2>Meet Our Lovely Team</h2>
+                    <p class="lead">
+                        Distinctively grow go forward manufactured products and optimal networks. Enthusiastically
+                        disseminate user-centric outsourcing.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var mbr in Model)
+            {
+                <div class="col-md-4">
+                    <div class="staff-member">
+                        <div class="card text-center border-0">
+                            <img src="~/Assets/img/@mbr.Photo" alt="team image" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="teacher mb-0">@mbr.Name</h5>
+                                <span>@mbr.Position</span>
+                                <ul class="list-inline pt-2 social">
+                                    @foreach (var item in @mbr.MemberLinks)
+                                    {
+                                        <li class="list-inline-item">
+                                            <a href="@item.Url" target="_blank">
+                                                <span class="@item.ClassName"></span>
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="overlay d-flex align-items-center justify-content-center">
+                            <div class="overlay-inner">
+                                <p class="teacher-quote">"Dramatically leverage existing fully researched platforms vis-a-vis viral." </p><a href="#" class="teacher-name">
+                                    <h5 class="mb-0 teacher text-white">@mbr.Name</h5>
+                                </a>
+                                <span class="teacher-field text-white">@mbr.Position</span>
+                                <ul class="list-inline py-4 social">
+                                    @foreach (var item in @mbr.MemberLinks)
+                                    {
+                                        <li class="list-inline-item">
+                                            <a href="@item.Url" target="_blank">
+                                                <span class="@item.ClassName"></span>
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                                <p class="teacher-see-profile">
+                                    <a href="#" class="btn outline-white-btn">View my profile</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

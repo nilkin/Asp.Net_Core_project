@@ -1,0 +1,198 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<!--body content wrap start-->
+
+<div class="main">
+    <vc:header-component></vc:header-component>
+    <!--hero section start-->
+    <section class="hero-equal-height pt-165 pb-100 gradient-overly-right-light"
+             style="background: url('~/../../Assets/img/@Model.Heroes.Photo')no-repeat center center / cover
+   ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-lg-6">
+                    <div class="hero-slider-content">
+                        <span class="text-uppercase">@Model.Heroes.Heading</span>
+                        <h1>@Model.Heroes.Name</h1>
+                        <p class="lead">@Model.Heroes.Content </p>
+                        <div class="action-btns mt-3">
+                            <a href="#" class="btn secondary-solid-btn">Get Start Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--hero section end-->
+    <!--promo section start-->
+    <section class="promo-block ptb-100 mt--165 z-index position-relative">
+        <div class="container">
+            <div class="row">
+                @foreach (var promo in Model.Promos)
+                {
+                    <div class="col-md-4 col-lg-4">
+                        <div class="single-promo-block @promo.Photo hover-image shadow-lg p-5 custom-radius white-bg">
+                            <div class="promo-block-icon mb-3">
+                                <span class="@promo.Icon icon-md color-primary"></span>
+                            </div>
+                            <div class="promo-block-content">
+                                <h5>@promo.Name</h5>
+                                <p>@promo.Content </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </section>
+    <!--promo section end-->
+    <!--about us section start-->
+    <section class="about-us-section pb-100">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-12 col-lg-6">
+                    <div class="video-promo-content mb-md-4 mb-lg-0">
+                        <h2>@Model.About.Name</h2>
+                        <p class="lead">
+                            @Model.About.Content
+                        </p>
+                        @Html.Raw(Model.About.Context)
+                        <div class="action-btns mt-4">
+                            <a href="#" class="btn primary-solid-btn mr-2">View Our Services</a>
+                            <a href="#" class="btn outline-btn">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6">
+                    <div class="image-wrap">
+                        <img src="~/Assets/img/@Model.About.Photo" alt="video" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--about us section end-->
+    <!--services section start-->
+    <partial name="_Services" model="@Model.HomeServices"/>
+    <!--services section end-->
+    <!--promo section start-->
+    <section class="promo-section gradient-bg ptb-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-9 col-lg-8">
+                    <div class="app-business-content text-center text-white">
+                        <h2 class="text-white">Download Apps Managing Business</h2>
+                        <p class="lead">
+                            Building your Apps busines helps attract more potential clients.
+                            Our integrated marketing team will work directly long-term high-impact convergence.
+                        </p>
+
+                        <div class="action-btns mt-5">
+                            <ul class="list-inline app-download-list">
+                                <li class="list-inline-item">
+                                    <a href="#" class="d-flex align-items-center border rounded">
+                                        <span class="fab fa-windows icon-sm mr-3"></span>
+                                        <div class="download-text text-left">
+                                            <span>Download form</span>
+                                            <h5 class="mb-0">Windows</h5>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" class="d-flex align-items-center border rounded">
+                                        <span class="fab fa-apple icon-sm mr-3"></span>
+                                        <div class="download-text text-left">
+                                            <span>Download form</span>
+                                            <h5 class="mb-0">App Store</h5>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" class="d-flex align-items-center border rounded">
+                                        <span class="fab fa-google-play icon-sm mr-3"></span>
+                                        <div class="download-text text-left">
+                                            <span>Download form</span>
+                                            <h5 class="mb-0">Google Play</h5>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--promo section end-->
+    <!--our work or portfolio section start-->
+    <partial name="_Qualities" model="@Model.Projects"/>
+    <!--our work or portfolio section end-->
+    <!--blog section start-->
+    <partial name="_Blogs" model="@Model.BlogItems"/>
+    <!--blog section end-->
+    <!--testimonial section start-->
+    <section class="testimonial-section ptb-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-9 col-lg-8">
+                    <div class="section-heading mb-5 text-center">
+                        <h2>What Clients Say About Us</h2>
+                        <p class="lead">
+                            Rapidiously morph transparent internal or "organic" sources whereas resource sucking
+                            e-business. Conveniently innovate compelling internal.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                @foreach (var clnt in @Model.Clients)
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <div class="testimonial-single shadow-sm gray-light-bg rounded p-4">
+                            <blockquote>
+                                @clnt.Content
+                            </blockquote>
+                            <div class="client-img d-flex align-items-center justify-content-between pt-4">
+                                <div class="d-flex align-items-center">
+                                    <img src="~/Assets/img/@clnt.Photo" alt="client" width="50" class="img-fluid rounded-circle shadow-sm mr-3" />
+                                    <div class="client-info">
+                                        <h5 class="mb-0">@clnt.Name</h5>
+                                        <small class="mb-0">@clnt.Position</small>
+                                    </div>
+                                </div>
+                                <div class="client-ratting">
+                                    <ul class="list-inline client-ratting-list">
+                                        @for (int i = 0; i < @clnt.Star; i++)
+                                        {
+                                            <li class="list-inline-item"><span class="fas fa-star ratting-color"></span></li>
+                                        }
+                                    </ul>
+                                    <span class="font-weight-bold">5.0 <small class="font-weight-lighter">Out of 5</small></span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+
+
+            </div>
+
+        </div>
+    </section>
+    <!--testimonial section end-->
+    <!--team two section start-->
+    <partial name="_Team" model="@Model.Members"/>
+    <!--team two section end-->
+    <!--call to action section start-->
+    <partial name="_Call" />
+    <!--call to action section end-->
+
+</div>
+<!--body content wrap end-->

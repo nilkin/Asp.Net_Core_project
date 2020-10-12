@@ -1,0 +1,30 @@
+﻿@model List<SocialLink>
+<!--footer copyright start-->
+<div class="footer-bottom gray-light-bg py-2">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-md-5 col-lg-5">
+                <p class="copyright-text pb-0 mb-0">
+                    Copyrights © 2020. All
+                    rights reserved by
+                    <a href="https://themeforest.net/user/themetags" target="_blank">ThemeTags</a>
+                </p>
+            </div>
+            <div class="col-md-7 col-lg-6 d-none d-md-block d-lg-block">
+                <div class="social-nav text-right">
+                    <ul class="list-unstyled social-list mb-0">
+                        @foreach (var item in Model)
+                        {
+
+                            <li class="list-inline-item tooltip-hover">
+                                <a href="@item.Url" class="rounded"><span class="@item.Icon"></span></a>
+                                <div class="tooltip-item">@item.Name</div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--footer copyright end-->

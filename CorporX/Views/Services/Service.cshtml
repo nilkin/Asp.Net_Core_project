@@ -1,0 +1,93 @@
+﻿@model ServiceViewModel
+@{
+    ViewData["Title"] = "Service";
+    Layout = "~/Views/Shared/_LayoutSecond.cshtml";
+}
+
+<!--body content wrap start-->
+<div class="main">
+
+    <!--header section start-->
+    <partial name="_Header" model="@Model.Breadcrumb" />
+    <!--header section end-->
+    <!--promo block with hover effect start-->
+    <section class="promo-block ptb-100">
+        <div class="container">
+            <div class="row">
+                @foreach (var prom in Model.Promo)
+                {
+                    <div class="col-md-4 col-lg-4">
+                        <div class="single-promo-block promo-hover-bg-3 hover-image shadow-lg p-5 rounded">
+                            <div class="promo-block-icon mb-3">
+                                <span class="@prom.Icon icon-md color-primary"></span>
+                            </div>
+                            <div class="promo-block-content">
+                                <h5>@prom.Name </h5>
+                                <p>@prom.Content </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </section>
+    <!--promo block with hover effect end-->
+    <!--services section start-->
+    <partial name="_Services" model="@Model.Services" />
+    <!--services section end-->
+    <!--counter section start-->
+    <section class="call-to-action ptb-100 gradient-overlay"
+             style="background: url('~/../../Assets/img/slider-img-3.jpg')no-repeat top center / cover fixed">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-8">
+                    <div class="call-to-action-content text-white text-center mb-4">
+                        <h2 class="text-white mb-1">Increase More Traffic Your Business?</h2>
+                        <p class="lead">Credibly redefine high-payoff web services after holistic experiences. Globally harness multidisciplinary solutions vis-a-vis intuitive customer service.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="single-counter rounded p-4 text-center text-white">
+                        <span class="ti-medall-alt icon-md"></span>
+                        <h3 class="mb-0 text-white">1600</h3>
+                        <p>Active users</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="single-counter rounded p-4 text-center text-white">
+                        <span class="ti-headphone-alt icon-md"></span>
+                        <h3 class="mb-0 text-white">2500</h3>
+                        <p>Global client</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="single-counter rounded p-4 text-center text-white">
+                        <span class="ti-cup icon-md"></span>
+                        <h3 class="mb-0 text-white">2150</h3>
+                        <p>Win award</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="single-counter rounded p-4 text-center text-white">
+                        <span class="ti-user icon-md"></span>
+                        <h3 class="mb-0 text-white">2150</h3>
+                        <p>Clients satisfaction</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--counter section end-->
+    <!--contact us section start-->
+    <partial name="_ReContact" />
+    <!--contact us section end-->
+    <!--client section start-->
+    <partial name="_Clients" model="@Model.Partners" />
+    <!--client section start-->
+
+
+</div>
+<!--body content wrap end-->
