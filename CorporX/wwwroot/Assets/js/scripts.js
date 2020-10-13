@@ -477,7 +477,7 @@ jQuery(function ($) {
 
   // 18. Contact Form
   if($("#contactForm").length) {
-    $("#contactForm").validator().on("submit", function (event) {
+    $("#contactForm").on("submit", function (event) {
         if (event.isDefaultPrevented()) {
         // handle the invalid form...
             submitMSG(false, '.contact');
@@ -523,6 +523,7 @@ jQuery(function ($) {
           $(parentSelector + " .message-box").removeClass('d-none').addClass('d-block ');
           $(parentSelector + " .message-box div").removeClass('alert-success').addClass('alert-danger').text('Found error in the form. Please check again.');
       }
-  }
+    }
+
 
 }); // JQuery end

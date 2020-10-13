@@ -15,5 +15,6 @@ namespace CorporX.ViewModels
         public List<Partner> Partners { get; set; }
         public List<Service> Promo { get; set; }
         public Setting Setting { get; set; }
+        public ContactUs ContactUs { get; set; }
     }
 }

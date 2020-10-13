@@ -18,13 +18,13 @@ namespace CorporX.Data.Configurations
 
             builder
                 .Property(m => m.Fullname)
-                .HasMaxLength(50)
-                .IsRequired();
+                .IsRequired()
+                .HasMaxLength(50);
 
             builder
                 .Property(m => m.Message)
-                .HasMaxLength(300)
-                .IsRequired();
+                .IsRequired()
+                .HasMaxLength(300);
             builder
                 .Property(m => m.Email)
                 .IsRequired()

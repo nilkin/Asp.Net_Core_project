@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ReflectionIT.Mvc.Paging;
 
 namespace CorporX
 {
@@ -23,12 +24,16 @@ namespace CorporX
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        //[Obsolete]
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
             services.AddDbContext<CorporxDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
-);
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddPaging(options => {
+                options.ViewName = "Bootstrap4";
+                //options.PageParameterName = "Grid";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

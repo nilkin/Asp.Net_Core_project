@@ -1,6 +1,7 @@
 ﻿using CorporX.Data.Models;
 using CorporX.Data.Models.Entities;
 using CorporX.Models;
+using ReflectionIT.Mvc.Paging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,9 @@ namespace CorporX.ViewModels
         public AboutUs About { get; set; }
         public List<Service> HomeServices { get; set; }
         public List<Project> Projects { get; set; }
-        public List<BlogItem> BlogItems { get; set; }
         public List<Client> Clients { get; set; }
         public List<Member> Members { get; set; }
         public List<MemberLink> MemberLinks { get; set; }
-    
-
+        public PagingList<BlogItem> PagingList { get; internal set; }
     }
 }

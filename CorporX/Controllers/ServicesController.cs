@@ -1,9 +1,11 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using CorporX.Data;
+using CorporX.Models;
 using CorporX.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace CorporX.Controllers
 {
@@ -26,5 +28,25 @@ namespace CorporX.Controllers
             };
             return View(model);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> ServiceAsync(ContactUs contact)
+        {
+            if (ModelState.IsValid)
+            {
+                ContactUs message = new ContactUs
+                {
+                    Fullname = contact.Fullname,
+                    Email = contact.Email,
+                    Message = contact.Message
+                };
+                await _context.Contacts.AddAsync(message);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Service", "Services");
+            }
+
+            return RedirectToAction("Service", "Services");
+        }
+
     }
 }

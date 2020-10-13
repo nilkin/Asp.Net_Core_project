@@ -1,4 +1,5 @@
 ﻿@model HomeViewModel
+
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -78,7 +79,7 @@
     </section>
     <!--about us section end-->
     <!--services section start-->
-    <partial name="_Services" model="@Model.HomeServices"/>
+    <partial name="_Services" model="@Model.HomeServices" />
     <!--services section end-->
     <!--promo section start-->
     <section class="promo-section gradient-bg ptb-100">
@@ -130,10 +131,10 @@
     </section>
     <!--promo section end-->
     <!--our work or portfolio section start-->
-    <partial name="_Qualities" model="@Model.Projects"/>
+    <partial name="_Qualities" model="@Model.Projects" />
     <!--our work or portfolio section end-->
     <!--blog section start-->
-    <partial name="_Blogs" model="@Model.BlogItems"/>
+    <partial name="_Blogs" model="@Model.PagingList" />
     <!--blog section end-->
     <!--testimonial section start-->
     <section class="testimonial-section ptb-100">
@@ -188,7 +189,7 @@
     </section>
     <!--testimonial section end-->
     <!--team two section start-->
-    <partial name="_Team" model="@Model.Members"/>
+    <partial name="_Team" model="@Model.Members" />
     <!--team two section end-->
     <!--call to action section start-->
     <partial name="_Call" />

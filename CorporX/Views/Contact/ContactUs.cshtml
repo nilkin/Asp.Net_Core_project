@@ -71,7 +71,36 @@
     </section>
     <!--contact us promo end-->
     <!--contact us section start-->
-    <partial name="_ReContact" />
+    <section class="contact-us-section ptb-100">
+        <div class="container contact">
+            <div class="col-12 pb-3 message-box d-none">
+                <div class="alert alert-danger"></div>
+            </div>
+            <div class="row justify-content-around">
+                <partial name="_ReContact" model="@Model.ContactUs" />
+                <div class="col-md-5">
+                    <div class="contact-us-content">
+                        <h2>Looking for a excellent Business idea?</h2>
+                        <p class="lead">Seamlessly deliver pandemic e-services and next-generation initiatives.</p>
+
+                        <a href="#" class="btn outline-btn align-items-center">Get Directions <span class="ti-arrow-right pl-2"></span></a>
+
+                        <hr class="my-5">
+
+                        <h5>Our Headquarters</h5>
+                        <address>
+                            @Model.Setting.Address
+                        </address>
+                        <br>
+                        <span>Phone: @Model.Setting.Phone</span> <br>
+                        <span>Email: <a href="mailto: @Model.Setting.Email" class="link-color">@Model.Setting.Email</a></span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!--contact us section end-->
     <!--google map block start-->
     <div class="google-map">
@@ -81,4 +110,23 @@
 
 
 </div>
+
+
 <!--body content wrap end-->
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="~/Assets/lib/sweetalert/sweetalert.min.js"></script>
+    @*<script>
+            $("#ContactForm").submit(function (e) {
+                Swal.fire(
+                    'Good job!',
+                    'You clicked the button!',
+                    'success'
+                );
+
+            })
+
+        </script>*@
+}

@@ -4,6 +4,7 @@ using CorporX.Data;
 using CorporX.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ReflectionIT.Mvc.Paging;
 
 namespace CorporX.Controllers
 {
@@ -15,13 +16,18 @@ namespace CorporX.Controllers
             _context = context;
 
         }
-        public async Task<IActionResult> GridAsync()
+        public async Task<IActionResult> Index(int page = 1, int pageSize = 3)
         {
+            var items = _context.BlogItems.AsNoTracking().OrderBy(x => x.Id);
+            var pagingData = await PagingList.CreateAsync(items ,pageSize , page);
             BlogItemsViewModel model = new BlogItemsViewModel
             {
+                PagingList = pagingData,
                 Breadcrumb = await _context.Breadcrumbs.FirstOrDefaultAsync(b => b.Title == "Blog Default"),
-                BlogItems = await _context.BlogItems.Where(b => !b.IsSidebar).OrderByDescending(s => s.Id).Take(6).ToListAsync(),
+                //BlogItems = await _context.BlogItems.Where(b => !b.IsSidebar).OrderByDescending(s => s.Id).Take(6).ToListAsync(),
+                
             };
+           
             return View(model);
         }
         public async Task<IActionResult> SidebarAsync()

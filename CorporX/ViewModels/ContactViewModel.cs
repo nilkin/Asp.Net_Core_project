@@ -1,5 +1,6 @@
 ﻿using CorporX.Data.Models;
 using CorporX.Data.Models.Entities;
+using CorporX.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,6 @@ namespace CorporX.ViewModels
         public Setting Sett { get; set; }
         public Breadcrumb Breadcrumb { get; set; }
         public Setting Setting { get; set; }
+        public ContactUs ContactUs { get; set; }
     }
 }
