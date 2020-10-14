@@ -9,6 +9,5 @@ namespace CorporX.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string Name { get; set; }
         public string Content { get; set; }
-
     }
 }

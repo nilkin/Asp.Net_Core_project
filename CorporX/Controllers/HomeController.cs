@@ -28,7 +28,6 @@ namespace CorporX.Controllers
                 About = await _context.AboutUs.FirstOrDefaultAsync(),
                 HomeServices = await _context.Services.OrderByDescending(s=>s.Id).Take(6).ToListAsync(),
                 Projects = await _context.Projects.OrderByDescending(s => s.Id).ToListAsync(),
-                //BlogItems = await _context.BlogItems.Where(b => !b.IsSidebar).OrderByDescending(s => s.Id).Take(3).ToListAsync(),
                 Clients = await _context.Clients.OrderByDescending(s => s.Id).Take(3).ToListAsync(),
                 Members = await _context.Members.Include(m=>m.MemberLinks).Take(3).ToListAsync(),
                 PagingList = await PagingList.CreateAsync(hm,3,1)

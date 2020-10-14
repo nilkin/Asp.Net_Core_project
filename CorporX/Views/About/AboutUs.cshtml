@@ -36,19 +36,11 @@
         <div class="container">
             <div class="row justify-content-between align-items-center">
                 <div class="col-md-12 col-lg-5">
-                    <div class="video-promo-content mb-md-4 mb-lg-0">
-                        <h2>Our Mission & Vission</h2>
-                        @Html.Raw(Model.Abouts.Context)
-                        <div class="action-btns mt-4">
-                            <a href="#" class="btn primary-solid-btn mr-2">View Our Services</a>
-                            <a href="#" class="btn outline-btn">Contact Us</a>
-                        </div>
-                    </div>
-
+                    @Html.Raw(Model.Abouts.Context)
                 </div>
                 <div class="col-md-12 col-lg-6">
                     <div class="card border-0 shadow-sm text-white">
-                        <img src="~/Assets/img/@Model.Abouts.Photo" alt="video" class="img-fluid rounded shadow-sm">
+                        <img src="~/../uploads/@Model.Abouts.Photo" alt="video" class="img-fluid rounded shadow-sm">
                     </div>
                 </div>
             </div>
@@ -95,7 +87,7 @@
     <partial name="_Team" model="@Model.Members" />
     <!--team two section end-->
     <!--testimonial section start-->
-    <partial name="_Testimonial" model="@Model.Clients"/>
+    <partial name="_Testimonial" model="@Model.Clients" />
     <!--testimonial section end-->
     <!--client section start-->
     <partial name="_Clients" model="@Model.Partners" />

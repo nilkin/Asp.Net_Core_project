@@ -30,7 +30,7 @@ namespace CorporX.Data
             builder.ApplyConfiguration(new ServiceConfiguration());
             builder.ApplyConfiguration(new SettingConfiguration());
             builder.ApplyConfiguration(new SocialLinkConfiguration());
-
+            builder.ApplyConfiguration(new UserConfiguration());
         }
 
         public DbSet<AboutUs> AboutUs { get; set; }
@@ -49,5 +49,6 @@ namespace CorporX.Data
         public DbSet<Service> Services { get; set; }
         public DbSet<Setting> Settings { get; set; }
         public DbSet<SocialLink> SocialLinks { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
