@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\Assets\img\hero-bg4.jpg" />
     <None Include="wwwroot\Assets\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
     <None Include="wwwroot\Assets\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
     <None Include="wwwroot\Assets\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />

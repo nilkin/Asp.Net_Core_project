@@ -1,0 +1,67 @@
+﻿@model Hero
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Hero</h4>
+<div class="container">
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Heading" class="control-label"></label>
+                    <input asp-for="Heading" class="form-control" />
+                    <span asp-validation-for="Heading" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Upload" class="control-label"></label>
+                    <input asp-for="Upload" class="form-control" />
+                    <span asp-validation-for="Upload" class="text-danger"></span>
+                    <div class="form-group">
+                        <img class="image-preview img-fluid" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Content" class="control-label"></label>
+                    <input asp-for="Content" class="form-control" />
+                    <span asp-validation-for="Content" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Index" class="btn btn-outline-dark">Back to List</a>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#Upload").change(function () {
+                var file = this.files[0];
+                var fileReader = new FileReader();
+                fileReader.onload = function (e) {
+                    $(".image-preview").attr("src", e.target.result);
+                };
+                fileReader.readAsDataURL(file, "UTF-8");
+            });
+        });
+    </script>
+}
+

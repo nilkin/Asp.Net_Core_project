@@ -33,7 +33,7 @@ namespace CorporX.Data.Configurations
                 .Property(m => m.Photo)
                 .HasMaxLength(100);
             builder
-                .Property(m => m.IsAdmin);
+                .Property(m => m.Position);
 
             builder.ToTable("Users");
         }

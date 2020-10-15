@@ -4,6 +4,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CorporX.Data.Models.Entities
 {
+    public enum Position
+    {
+        Admin,
+        User
+    }
     public class User
     {
         public int Id { get; set; }
@@ -15,7 +20,7 @@ namespace CorporX.Data.Models.Entities
         public string Photo { get; set; }
         [NotMapped]
         public IFormFile Upload { get; set; }
-        public bool IsAdmin { get; set; }
+        public Position Position { get; set; } = Position.User;
 
     }
 }

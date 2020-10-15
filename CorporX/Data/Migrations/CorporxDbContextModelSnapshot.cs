@@ -122,9 +122,6 @@ namespace CorporX.Data.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsAdmin")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Lastname")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -143,6 +140,9 @@ namespace CorporX.Data.Migrations
                     b.Property<string>("Photo")
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("Position")
+                        .HasColumnType("int");
 
                     b.Property<string>("Token")
                         .HasMaxLength(100)

@@ -1,4 +1,4 @@
-﻿@model CorporX.Data.Models.Breadcrumb
+﻿@model Breadcrumb
 
 @{
     ViewData["Title"] = "Details";
@@ -6,38 +6,39 @@
 }
 
 <h1>Details</h1>
-
-<div class="table ml-5">
-    <h4>Breadcrumb</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Photo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Photo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Link)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Link)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Path)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Path)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="container">
+    <div class="table ml-5">
+        <h4>Breadcrumb</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Photo)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Photo)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Link)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Link)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Path)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Path)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
 </div>

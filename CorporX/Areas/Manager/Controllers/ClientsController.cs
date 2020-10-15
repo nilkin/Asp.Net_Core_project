@@ -73,8 +73,6 @@ namespace CorporX.Areas.Manager.Controllers
                     ModelState.AddModelError("Upload", "The file size can be a maximum of 1 MB");
                 }
             }
-
-
             if (ModelState.IsValid)
             {
                 client.Photo = _fileManager.Upload(client.Upload, "wwwroot/uploads");

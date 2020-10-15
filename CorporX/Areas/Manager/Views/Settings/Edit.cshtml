@@ -1,0 +1,70 @@
+﻿@model Setting
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+<div class="container">
+    <h4>Setting</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit" enctype="multipart/form-data" method="post" class="ml-5">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Upload" class="control-label"></label>
+                    <input asp-for="Upload" class="form-control" />
+                    <span asp-validation-for="Upload" class="text-danger"></span>
+                    <div class="form-group">
+                        <img class="image-preview img-fluid" />
+                    </div>
+                </div>
+                <input type="hidden" asp-for="Logo" />
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Phone" class="control-label"></label>
+                    <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+    <script>
+            $(document).ready(function () {
+                $("#Upload").change(function () {
+                    var file = this.files[0];
+                    var fileReader = new FileReader();
+                    fileReader.onload = function (e) {
+                        $(".image-preview").attr("src", e.target.result);
+                    };
+                    fileReader.readAsDataURL(file, "UTF-8");
+                });
+            });
+    </script>
+}
+

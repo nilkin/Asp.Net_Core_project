@@ -47,8 +47,15 @@ using ReflectionIT.Mvc.Paging;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\Views\_ViewImports.cshtml"
+using CorporX.Data.Models;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ad3eb41aa54c0704f8b182c1e45b34aaa224f50d", @"/Views/Shared/_Header.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"87dc0700a9fdc35c3637b59456fdd67cc70ae19b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"08e8e625da0f78a3d0a36b6fb662096c1b3669a3", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__Header : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<CorporX.Data.Models.Breadcrumb>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Home", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -114,7 +121,7 @@ WriteAttributeValue("", 151, Model.Photo, 151, 12, false);
                         <ol class=""breadcrumb d-inline-block bg-transparent list-inline py-0"">
                             <li class=""list-inline-item breadcrumb-item"">
                                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ad3eb41aa54c0704f8b182c1e45b34aaa224f50d6434", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ad3eb41aa54c0704f8b182c1e45b34aaa224f50d6630", async() => {
                 WriteLiteral("Home");
             }
             );
@@ -141,7 +148,7 @@ WriteAttributeValue("", 151, Model.Photo, 151, 12, false);
 #line hidden
 #nullable disable
             WriteLiteral("                                <li class=\"list-inline-item breadcrumb-item\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ad3eb41aa54c0704f8b182c1e45b34aaa224f50d8252", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ad3eb41aa54c0704f8b182c1e45b34aaa224f50d8448", async() => {
 #nullable restore
 #line 19 "C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\Views\Shared\_Header.cshtml"
                                                                       Write(Model.Link);

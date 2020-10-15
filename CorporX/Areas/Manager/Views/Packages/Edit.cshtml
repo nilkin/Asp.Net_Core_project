@@ -1,0 +1,78 @@
+﻿@model Package
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+<div class="container">
+    <h4>Package</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit" enctype="multipart/form-data" method="post" class="ml-5">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Upload" class="control-label"></label>
+                    <input asp-for="Upload" class="form-control" />
+                    <span asp-validation-for="Upload" class="text-danger"></span>
+                    <div class="form-group">
+                        <img class="image-preview img-fluid" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BtnClass" class="control-label"></label>
+                    <input asp-for="BtnClass" class="form-control" />
+                    <span asp-validation-for="BtnClass" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Class" class="control-label"></label>
+                    <input asp-for="Class" class="form-control" />
+                    <span asp-validation-for="Class" class="text-danger"></span>
+                </div>
+                <input type="hidden" asp-for="Photo" />
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Content" class="control-label"></label>
+                    <input asp-for="Content" class="form-control" />
+                    <span asp-validation-for="Content" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="ml-5">
+        <a asp-action="Index" class="btn btn-outline-dark">Back to List</a>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#Upload").change(function () {
+                var file = this.files[0];
+                var fileReader = new FileReader();
+                fileReader.onload = function (e) {
+                    $(".image-preview").attr("src", e.target.result);
+                };
+                fileReader.readAsDataURL(file, "UTF-8");
+            });
+        });
+    </script>
+}

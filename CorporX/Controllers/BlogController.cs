@@ -34,7 +34,7 @@ namespace CorporX.Controllers
             SidebarViewModel model = new SidebarViewModel
             {
                 BlogItem = await _context.BlogItems.FirstOrDefaultAsync(b => b.IsSidebar),
-                Breadcrumb = await _context.Breadcrumbs.FirstOrDefaultAsync(b => b.Title == "Blog Left Sidebar"),
+                Breadcrumb = await _context.Breadcrumbs.FirstOrDefaultAsync(b => b.Title == "Blog Single Left Sidebar"),
             };
             return View(model);
         }

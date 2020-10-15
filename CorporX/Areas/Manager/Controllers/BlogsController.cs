@@ -108,7 +108,6 @@ namespace CorporX.Areas.Manager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id,[Bind("Text,Photo,AddedDate,BlogType,IsSidebar,Id,Name,Content,Upload")] BlogItem blogItem)
         {
-            //string file = _context.BlogItems.Find(blogItem.Id).Photo;
             if (id != blogItem.Id)
             {
                 return NotFound();
