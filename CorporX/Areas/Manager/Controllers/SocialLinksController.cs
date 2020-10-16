@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CorporX.Data;
 using CorporX.Models;
+using CorporX.Filters;
 
 namespace CorporX.Areas.Manager.Controllers
 {
+    [TypeFilter(typeof(Auth))]
     [Area("Manager")]
     public class SocialLinksController : Controller
     {

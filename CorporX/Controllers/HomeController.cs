@@ -1,5 +1,5 @@
-﻿
-using CorporX.Data;
+﻿using CorporX.Data;
+using CorporX.Filters;
 using CorporX.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace CorporX.Controllers
 {
+
     public class HomeController : Controller
     {
         private readonly CorporxDbContext _context;
@@ -16,7 +17,7 @@ namespace CorporX.Controllers
         {
             _context = context;
         }
-        public async Task<IActionResult> IndexAsync()
+        public async Task<IActionResult> Index()
         {
             var hm = _context.BlogItems.Where(b => !b.IsSidebar).OrderBy(s => s.Id);
             HomeViewModel model = new HomeViewModel

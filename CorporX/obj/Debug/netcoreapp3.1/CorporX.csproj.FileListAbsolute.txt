@@ -366,9 +366,6 @@ C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\bin\Debug\netcorea
 C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
-C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\obj\Debug\netcoreapp3.1\CorporX.csproj.CoreCompileInputs.cache
-C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\obj\Debug\netcoreapp3.1\CorporX.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\obj\Debug\netcoreapp3.1\CorporX.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\obj\Debug\netcoreapp3.1\Razor\Areas\Manager\Views\Account\Login.cshtml.g.cs
 C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\obj\Debug\netcoreapp3.1\Razor\Areas\Manager\Views\Home\Index.cshtml.g.cs
 C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\obj\Debug\netcoreapp3.1\Razor\Areas\Manager\Views\AboutUs\Create.cshtml.g.cs
@@ -451,3 +448,13 @@ C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\obj\Debug\netcorea
 C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\obj\Debug\netcoreapp3.1\Razor\Areas\Manager\Views\MemberLinks\Details.cshtml.g.cs
 C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\obj\Debug\netcoreapp3.1\Razor\Areas\Manager\Views\MemberLinks\Edit.cshtml.g.cs
 C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\obj\Debug\netcoreapp3.1\Razor\Areas\Manager\Views\MemberLinks\Index.cshtml.g.cs
+C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\obj\Debug\netcoreapp3.1\Razor\Areas\Manager\Views\Account\Register.cshtml.g.cs
+C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\bin\Debug\netcoreapp3.1\CryptoHelper.dll
+C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\obj\Debug\netcoreapp3.1\CorporX.csproj.CoreCompileInputs.cache
+C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\obj\Debug\netcoreapp3.1\CorporX.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\obj\Debug\netcoreapp3.1\CorporX.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\obj\Debug\netcoreapp3.1\Razor\Areas\Manager\Views\Users\Create.cshtml.g.cs
+C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\obj\Debug\netcoreapp3.1\Razor\Areas\Manager\Views\Users\Delete.cshtml.g.cs
+C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\obj\Debug\netcoreapp3.1\Razor\Areas\Manager\Views\Users\Details.cshtml.g.cs
+C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\obj\Debug\netcoreapp3.1\Razor\Areas\Manager\Views\Users\Edit.cshtml.g.cs
+C:\Users\n_ilkin\Desktop\my Code\Asp.Net_Core_project\CorporX\obj\Debug\netcoreapp3.1\Razor\Areas\Manager\Views\Users\Index.cshtml.g.cs

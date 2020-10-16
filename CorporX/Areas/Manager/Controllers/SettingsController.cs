@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using CorporX.Data;
 using CorporX.Data.Models.Entities;
 using static CorporX.Services.FileUploader;
+using CorporX.Filters;
 
 namespace CorporX.Areas.Manager.Controllers
 {
+    [TypeFilter(typeof(Auth))]
     [Area("Manager")]
     public class SettingsController : Controller
     {

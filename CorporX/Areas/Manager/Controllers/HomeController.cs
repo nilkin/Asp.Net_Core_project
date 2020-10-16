@@ -4,9 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using CorporX.Data;
 using Microsoft.AspNetCore.Mvc;
-
+using CorporX.Filters;
 namespace CorporX.Areas.Manager.Controllers
 {
+    [TypeFilter(typeof(Auth))]
     [Area("Manager")]
     public class HomeController : Controller
     {

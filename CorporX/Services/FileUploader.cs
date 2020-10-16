@@ -33,6 +33,7 @@ namespace CorporX.Services
             public void Delete(string filename, string deletePath = "wwwroot/uploads")
             {
                 var file = Path.Combine(Directory.GetCurrentDirectory(), deletePath, filename);
+
                 File.Delete(file);
             }
         }

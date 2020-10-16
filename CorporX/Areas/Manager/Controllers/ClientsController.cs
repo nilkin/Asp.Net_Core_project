@@ -6,9 +6,10 @@ using CorporX.Data;
 using CorporX.Models;
 using static CorporX.Services.FileUploader;
 using System.IO;
-
+using CorporX.Filters;
 namespace CorporX.Areas.Manager.Controllers
 {
+    [TypeFilter(typeof(Auth))]
     [Area("Manager")]
     public class ClientsController : Controller
     {

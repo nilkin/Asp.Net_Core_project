@@ -17,10 +17,10 @@ namespace CorporX.Data.Models.Entities
         public string Email { get; set; }
         public string Password { get; set; }
         public string Token { get; set; }
-        public string Photo { get; set; }
+        public string Photo { get; set; } 
         [NotMapped]
         public IFormFile Upload { get; set; }
-        public Position Position { get; set; } = Position.User;
+        public Position Position { get; set; }
 
     }
 }

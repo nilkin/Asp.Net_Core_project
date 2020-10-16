@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using CorporX.Areas.Manager.ViewModels;
 using CorporX.Data;
 using CorporX.Data.Models.Entities;
+using CorporX.Filters;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using CryptoHelper;
 
 namespace CorporX.Areas.Manager.Controllers
 {
@@ -12,7 +15,7 @@ namespace CorporX.Areas.Manager.Controllers
     public class AccountController : Controller
     {
         private readonly CorporxDbContext _context;
-
+        //private User user => RouteData.Values["User"] as User;
         public AccountController(CorporxDbContext context)
         {
             _context = context;
@@ -30,10 +33,10 @@ namespace CorporX.Areas.Manager.Controllers
 
                 if (user != null)
                 {
-                    //if (Crypto.VerifyHashedPassword(user.Password, model.Password))
-                    //{
-                        //user.Token = Crypto.HashPassword(DateTime.Now.ToString());
-                        user.Token = Guid.NewGuid().ToString();
+                    if (Crypto.VerifyHashedPassword(user.Password, model.Password))
+                    {
+                        user.Token = Crypto.HashPassword(DateTime.Now.ToString());
+                        //user.Token = Guid.NewGuid().ToString();
 
                         _context.SaveChanges();
 
@@ -42,16 +45,51 @@ namespace CorporX.Areas.Manager.Controllers
                             Expires = DateTime.Now.AddDays(1),
                             HttpOnly = true
                         });
-
-                        return RedirectToAction("index","Home",new { area = "manager"});
-                    //}
+                        if (user.Position != Position.Admin)
+                        {
+                            return RedirectToAction("index", "Home", new { area = "" });
+                        }
+                        else
+                        {
+                            return RedirectToAction("index", "Home", new { area = "manager" });
+                        }
+                      
+                    }
                 }
 
-                ModelState.AddModelError("Password", "E-poçt və ya şifrə yanlışdır");
+                ModelState.AddModelError("Password", "Email or password is incorrect");
             }
 
             return View(model);
         }
 
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Register(RegisterViewModel model)
+        {
+            if (_context.Users.Any(u => u.Email == model.Email))
+            {
+                ModelState.AddModelError("Email", "This e-mail address is already registered");
+            }
+
+            if (ModelState.IsValid)
+            {
+                User user = new User
+                {
+                    Name = model.Name,
+                    Lastname = model.Lastname,
+                    Email = model.Email,
+                    Password = Crypto.HashPassword(model.Password),
+                };
+                _context.Users.Add(user);
+                _context.SaveChanges();
+                return RedirectToAction("login", "account", new { area = "manager" });
+            }
+            return View(model);
+        }
     }
 }

@@ -17,11 +17,5 @@ namespace CorporX.Areas.Manager.ViewModels
         [DataType(DataType.Password)]
         [MinLength(6)]
         public string Password { get; set; }
-
-        [DisplayName("Password Confirm")]
-        [Compare("Password")]
-        [DataType(DataType.Password)]
-        [Required]
-        public string PasswordConfirm { get; set; }
     }
 }

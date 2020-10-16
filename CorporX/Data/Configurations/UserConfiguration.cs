@@ -1,6 +1,7 @@
 ﻿using CorporX.Data.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
 
 namespace CorporX.Data.Configurations
 {
@@ -24,7 +25,7 @@ namespace CorporX.Data.Configurations
                 .IsRequired();
             builder
                 .Property(m => m.Password)
-                .HasMaxLength(50)
+                .HasMaxLength(100)
                 .IsRequired();
             builder
                 .Property(m => m.Token)
@@ -33,7 +34,7 @@ namespace CorporX.Data.Configurations
                 .Property(m => m.Photo)
                 .HasMaxLength(100);
             builder
-                .Property(m => m.Position);
+                .Property(x => x.Position).HasDefaultValue(Position.User);
 
             builder.ToTable("Users");
         }
