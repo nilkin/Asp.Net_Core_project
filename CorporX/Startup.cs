@@ -1,5 +1,6 @@
 using System;
 using CorporX.Data;
+using CorporX.Hubs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +29,7 @@ namespace CorporX
             services.AddPaging(options => {
                 options.ViewName = "Bootstrap4";
             });
+            services.AddSignalR();
             services.AddSingleton<IFileManager, FileManager>();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +59,7 @@ namespace CorporX
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapHub<CommentHub>("/commenthub");
             });
         }
     }

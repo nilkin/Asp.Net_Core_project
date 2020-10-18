@@ -12,7 +12,7 @@ using CorporX.Filters;
 
 namespace CorporX.Areas.Manager.Controllers
 {
-    [TypeFilter(typeof(Auth))]
+    
     [Area("Manager")]
     public class SettingsController : Controller
     {
@@ -88,6 +88,7 @@ namespace CorporX.Areas.Manager.Controllers
         }
 
         // GET: Manager/Settings/Edit/5
+        [TypeFilter(typeof(Auth))]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -108,6 +109,7 @@ namespace CorporX.Areas.Manager.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [TypeFilter(typeof(Auth))]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Logo,Email,Address,Phone,Upload")] Setting setting)
         {
             if (id != setting.Id)
@@ -157,6 +159,7 @@ namespace CorporX.Areas.Manager.Controllers
         }
 
         // GET: Manager/Settings/Delete/5
+        [TypeFilter(typeof(Auth))]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -177,6 +180,7 @@ namespace CorporX.Areas.Manager.Controllers
         // POST: Manager/Settings/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [TypeFilter(typeof(Auth))]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var setting = await _context.Settings.FindAsync(id);

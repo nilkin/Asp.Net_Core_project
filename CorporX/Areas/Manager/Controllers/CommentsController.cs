@@ -12,7 +12,6 @@ using System.IO;
 using CorporX.Filters;
 namespace CorporX.Areas.Manager.Controllers
 {
-    [TypeFilter(typeof(Auth))]
     [Area("Manager")]
     public class CommentsController : Controller
     {
@@ -90,6 +89,8 @@ namespace CorporX.Areas.Manager.Controllers
         }
 
         // GET: Manager/Comments/Edit/5
+        [TypeFilter(typeof(Auth))]
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -110,6 +111,8 @@ namespace CorporX.Areas.Manager.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [TypeFilter(typeof(Auth))]
+
         public async Task<IActionResult> Edit(int id, [Bind("Website,Email,Photo,AddedDate,Id,Name,Content,Upload")] Comment comment)
         {
             if (id != comment.Id)
@@ -161,6 +164,8 @@ namespace CorporX.Areas.Manager.Controllers
         }
 
         // GET: Manager/Comments/Delete/5
+
+        [TypeFilter(typeof(Auth))]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -181,6 +186,7 @@ namespace CorporX.Areas.Manager.Controllers
         // POST: Manager/Comments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [TypeFilter(typeof(Auth))]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var comment = await _context.Comments.FindAsync(id);

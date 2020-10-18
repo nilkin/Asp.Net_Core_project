@@ -31,6 +31,15 @@ namespace CorporX.Data
             builder.ApplyConfiguration(new SettingConfiguration());
             builder.ApplyConfiguration(new SocialLinkConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
+            //builder.Entity<User>().HasData(
+            //    new User
+            //    {
+            //        Name = "admin",
+            //        Lastname = "admin",
+            //        Email = "admin@mail.com",
+            //        Password = "admin1",
+            //        Position = Position.Admin
+            //    });
         }
 
         public DbSet<AboutUs> AboutUs { get; set; }

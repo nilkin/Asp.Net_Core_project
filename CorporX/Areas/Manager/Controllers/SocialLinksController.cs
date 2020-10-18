@@ -11,7 +11,6 @@ using CorporX.Filters;
 
 namespace CorporX.Areas.Manager.Controllers
 {
-    [TypeFilter(typeof(Auth))]
     [Area("Manager")]
     public class SocialLinksController : Controller
     {
@@ -69,6 +68,7 @@ namespace CorporX.Areas.Manager.Controllers
         }
 
         // GET: Manager/SocialLinks/Edit/5
+        [TypeFilter(typeof(Auth))]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -89,6 +89,7 @@ namespace CorporX.Areas.Manager.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [TypeFilter(typeof(Auth))]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Icon,Url")] SocialLink socialLink)
         {
             if (id != socialLink.Id)
@@ -120,6 +121,7 @@ namespace CorporX.Areas.Manager.Controllers
         }
 
         // GET: Manager/SocialLinks/Delete/5
+        [TypeFilter(typeof(Auth))]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -138,6 +140,7 @@ namespace CorporX.Areas.Manager.Controllers
         }
 
         // POST: Manager/SocialLinks/Delete/5
+        [TypeFilter(typeof(Auth))]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

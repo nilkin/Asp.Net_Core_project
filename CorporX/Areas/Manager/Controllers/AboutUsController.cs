@@ -10,7 +10,7 @@ using CorporX.Filters;
 
 namespace CorporX.Areas.Manager.Controllers
 {
-    [TypeFilter(typeof(Auth))]
+
     [Area("Manager")]
     public class AboutUsController : Controller
     {
@@ -45,7 +45,6 @@ namespace CorporX.Areas.Manager.Controllers
 
             return View(aboutUs);
         }
-
         // GET: Manager/AboutUs/Create
         public IActionResult Create()
         {
@@ -56,7 +55,6 @@ namespace CorporX.Areas.Manager.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Context,Photo,Id,Name,Content,Upload")] AboutUs aboutUs)
         {
             if (aboutUs.Upload == null)
@@ -86,7 +84,7 @@ namespace CorporX.Areas.Manager.Controllers
             }
             return View(aboutUs);
         }
-
+        [TypeFilter(typeof(Auth))]
         // GET: Manager/AboutUs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -109,6 +107,7 @@ namespace CorporX.Areas.Manager.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [TypeFilter(typeof(Auth))]
         public async Task<IActionResult> Edit(int id, [Bind("Context,Photo,Id,Name,Content,Upload")] AboutUs aboutUs)
         {
             if (id != aboutUs.Id)
@@ -156,8 +155,9 @@ namespace CorporX.Areas.Manager.Controllers
             }
             return View(aboutUs);
         }
-      
+
         // GET: Manager/AboutUs/Delete/5
+        [TypeFilter(typeof(Auth))]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -178,6 +178,7 @@ namespace CorporX.Areas.Manager.Controllers
         // POST: Manager/Blogs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [TypeFilter(typeof(Auth))]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var aboutUs = await _context.AboutUs.FindAsync(id);

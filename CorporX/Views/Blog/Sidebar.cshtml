@@ -98,11 +98,12 @@
                                     <ul class="post-meta">
                                         <li>@Model.BlogItem.AddedDate.ToString("dd.MM.yyyy")</li>
                                         <li>
-                                        In <a href="#">@breadcrumbs[0]</a>,<a href="#">@breadcrumbs[1]</a></li>
+                                            In <a href="#">@breadcrumbs[0]</a>,<a href="#">@breadcrumbs[1]</a>
+                                        </li>
                                         <li><a href="#">3 Comments</a></li>
                                     </ul>
                                 </div>
-                                        @Html.Raw(Model.BlogItem.Text)
+                                @Html.Raw(Model.BlogItem.Text)
                             </div>
                         </article>
                         <!-- Post end-->
@@ -158,7 +159,7 @@
                             <div class="comment-respond">
                                 <h5 class="comment-reply-title">Leave a Reply</h5>
                                 <p class="comment-notes">Your email address will not be published. Required fields are marked</p>
-                                <form class="comment-form row">
+                                <form method="post" class="comment-form row">
                                     <div class="form-group col-md-4">
                                         <input class="form-control" type="text" placeholder="Name">
                                     </div>
@@ -172,7 +173,7 @@
                                         <textarea class="form-control" rows="8" placeholder="Comment"></textarea>
                                     </div>
                                     <div class="form-submit col-md-12">
-                                        <button class="btn secondary-solid-btn" type="submit">Post Comment</button>
+                                        <button type="button" id="sendButton" class="btn secondary-solid-btn" >Post Comment</button>
                                     </div>
                                 </form>
                             </div>
@@ -189,3 +190,41 @@
 
 </div>
 <!--body content wrap end-->
+<div class="container">
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-2">User</div>
+        <div class="col-4"><input type="text" id="userInput" /></div>
+    </div>
+    <div class="row">
+        <div class="col-2">Message</div>
+        <div class="col-4"><input type="text" id="messageInput" /></div>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-6">
+            <input type="button" id="sendButton" value="Send Message" />
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <ul id="messagesList"></ul>
+    </div>
+</div>
+
+<!--body content wrap end-->
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="~/Assets/lib/sweetalert/sweetalert.min.js"></script>
+    <script src="~/Assets/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <script src="~/Assets/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="~/Assets/js/comment.js"></script>
+}

@@ -39,7 +39,7 @@ namespace CorporX.Filters
 
             if (user.Position != Position.Admin)
             {
-                context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { action = "login", controller = "account" }));
+                context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { action = "Error", controller = "Error", area = "" }));
             }
 
             context.RouteData.Values["User"] = user;

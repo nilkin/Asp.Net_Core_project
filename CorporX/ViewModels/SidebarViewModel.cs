@@ -1,5 +1,6 @@
 ﻿using CorporX.Data.Models;
 using CorporX.Models;
+using System.Collections.Generic;
 
 namespace CorporX.ViewModels
 {
@@ -8,5 +9,7 @@ namespace CorporX.ViewModels
     {
         public BlogItem BlogItem { get; set; }
         public Breadcrumb Breadcrumb { get; set; }
+        public List<Comment> Comments { get; set; }
+
     }
 }

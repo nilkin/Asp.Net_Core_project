@@ -27,7 +27,7 @@ namespace CorporX.Controllers
                 Heroes = await _context.Heroes.FirstOrDefaultAsync(),
                 Promos = await _context.Services.Where(s => s.IsPromoHome).Take(3).ToListAsync(),
                 About = await _context.AboutUs.FirstOrDefaultAsync(),
-                HomeServices = await _context.Services.OrderByDescending(s=>s.Id).Take(6).ToListAsync(),
+                HomeServices = await _context.Services.OrderByDescending(s=>s.Id).Skip(1).Take(6).ToListAsync(),
                 Projects = await _context.Projects.OrderByDescending(s => s.Id).ToListAsync(),
                 Clients = await _context.Clients.OrderByDescending(s => s.Id).Take(3).ToListAsync(),
                 Members = await _context.Members.Include(m=>m.MemberLinks).Take(3).ToListAsync(),

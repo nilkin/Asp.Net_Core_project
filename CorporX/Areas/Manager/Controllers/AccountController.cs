@@ -15,7 +15,6 @@ namespace CorporX.Areas.Manager.Controllers
     public class AccountController : Controller
     {
         private readonly CorporxDbContext _context;
-        //private User user => RouteData.Values["User"] as User;
         public AccountController(CorporxDbContext context)
         {
             _context = context;
@@ -42,17 +41,10 @@ namespace CorporX.Areas.Manager.Controllers
 
                         Response.Cookies.Append("token", user.Token, new Microsoft.AspNetCore.Http.CookieOptions
                         {
-                            Expires = DateTime.Now.AddDays(1),
+                            Expires = DateTime.Now.AddYears(1),
                             HttpOnly = true
                         });
-                        if (user.Position != Position.Admin)
-                        {
-                            return RedirectToAction("index", "Home", new { area = "" });
-                        }
-                        else
-                        {
                             return RedirectToAction("index", "Home", new { area = "manager" });
-                        }
                       
                     }
                 }

@@ -12,7 +12,6 @@ using System.IO;
 using CorporX.Filters;
 namespace CorporX.Areas.Manager.Controllers
 {
-    [TypeFilter(typeof(Auth))]
     [Area("Manager")]
     public class HeroesController : Controller
     {
@@ -88,6 +87,7 @@ namespace CorporX.Areas.Manager.Controllers
             }
             return View(hero);
         }
+        [TypeFilter(typeof(Auth))]
 
         // GET: Manager/Heroes/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -110,6 +110,8 @@ namespace CorporX.Areas.Manager.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [TypeFilter(typeof(Auth))]
+
         public async Task<IActionResult> Edit(int id, [Bind("Heading,Photo,Id,Name,Content,Upload")] Hero hero)
         {
             if (id != hero.Id)
@@ -159,6 +161,7 @@ namespace CorporX.Areas.Manager.Controllers
         }
 
         // GET: Manager/Heroes/Delete/5
+        [TypeFilter(typeof(Auth))]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -179,6 +182,7 @@ namespace CorporX.Areas.Manager.Controllers
         // POST: Manager/Heroes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [TypeFilter(typeof(Auth))]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var hero = await _context.Heroes.FindAsync(id);

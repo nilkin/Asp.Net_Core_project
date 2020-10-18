@@ -10,7 +10,6 @@ using CorporX.Models;
 using CorporX.Filters;
 namespace CorporX.Areas.Manager.Controllers
 {
-    [TypeFilter(typeof(Auth))]
     [Area("Manager")]
     public class ContactUsController : Controller
     {
@@ -68,6 +67,7 @@ namespace CorporX.Areas.Manager.Controllers
         }
 
         // GET: Manager/ContactUs/Edit/5
+        [TypeFilter(typeof(Auth))]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -88,6 +88,7 @@ namespace CorporX.Areas.Manager.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [TypeFilter(typeof(Auth))]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Fullname,Email,Message")] ContactUs contactUs)
         {
             if (id != contactUs.Id)
@@ -117,7 +118,7 @@ namespace CorporX.Areas.Manager.Controllers
             }
             return View(contactUs);
         }
-
+        [TypeFilter(typeof(Auth))]
         // GET: Manager/ContactUs/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -139,6 +140,7 @@ namespace CorporX.Areas.Manager.Controllers
         // POST: Manager/ContactUs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [TypeFilter(typeof(Auth))]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var contactUs = await _context.Contacts.FindAsync(id);

@@ -13,7 +13,6 @@ using CorporX.Filters;
 
 namespace CorporX.Areas.Manager.Controllers
 {
-    [TypeFilter(typeof(Auth))]
     [Area("Manager")]
     public class MembersController : Controller
     {
@@ -91,6 +90,7 @@ namespace CorporX.Areas.Manager.Controllers
         }
 
         // GET: Manager/Members/Edit/5
+        [TypeFilter(typeof(Auth))]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -111,6 +111,7 @@ namespace CorporX.Areas.Manager.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [TypeFilter(typeof(Auth))]
         public async Task<IActionResult> Edit(int id, [Bind("Upload,Position,Photo,Id,Name,Content")] Member member)
         {
             if (id != member.Id)
@@ -160,6 +161,7 @@ namespace CorporX.Areas.Manager.Controllers
         }
 
         // GET: Manager/Members/Delete/5
+        [TypeFilter(typeof(Auth))]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -178,6 +180,7 @@ namespace CorporX.Areas.Manager.Controllers
         }
 
         // POST: Manager/Members/Delete/5
+        [TypeFilter(typeof(Auth))]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
