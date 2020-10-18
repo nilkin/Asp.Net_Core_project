@@ -48,12 +48,14 @@
 </div>
 
 
+
 @section Scripts{
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-
+    <script src="//cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
     <script>
         $(document).ready(function () {
+            CKEDITOR.replace("Context");
             $("#Upload").change(function () {
                 var file = this.files[0];
                 var fileReader = new FileReader();
