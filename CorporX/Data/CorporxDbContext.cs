@@ -31,15 +31,17 @@ namespace CorporX.Data
             builder.ApplyConfiguration(new SettingConfiguration());
             builder.ApplyConfiguration(new SocialLinkConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
-            //builder.Entity<User>().HasData(
-            //    new User
-            //    {
-            //        Name = "admin",
-            //        Lastname = "admin",
-            //        Email = "admin@mail.com",
-            //        Password = "admin1",
-            //        Position = Position.Admin
-            //    });
+            builder.Entity<User>().HasData(
+                new User
+                {
+                    Id = 9999,
+                    Name = "admin",
+                    Lastname = "admin",
+                    Email = "admin@mail.com",
+                    Token = "AQAAAAEAACcQAAAAEIQkMwpUcTMKwdYPY9ujciKM3zzYaDi7SAuE4niZpMamCQyZnFySZ7Dsly7s3xw93w==",
+                    Password = "AQAAAAEAACcQAAAAEPFBEHcudvFHnRPhntVlXk/nwgnxHAf+c1oVJaoJNwOt3cNdDQPKjKX4dI+aN8BNUA==",
+                    Position = Position.Admin
+                });
         }
 
         public DbSet<AboutUs> AboutUs { get; set; }

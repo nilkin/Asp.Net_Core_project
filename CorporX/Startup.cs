@@ -59,7 +59,7 @@ namespace CorporX
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapHub<CommentHub>("/commenthub");
+                endpoints.MapHub<CommentHub>("/CommentHub");
             });
         }
     }

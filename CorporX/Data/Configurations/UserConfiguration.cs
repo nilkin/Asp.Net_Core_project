@@ -31,7 +31,7 @@ namespace CorporX.Data.Configurations
                 .Property(m => m.Token)
                 .HasMaxLength(100);
             builder
-                .Property(m => m.Photo)
+                .Property(m => m.Photo).HasDefaultValue("avatar.png")
                 .HasMaxLength(100);
             builder
                 .Property(x => x.Position).HasDefaultValue(Position.User);

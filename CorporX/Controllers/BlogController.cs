@@ -38,5 +38,10 @@ namespace CorporX.Controllers
             };
             return View(model);
         }
+
+        public IActionResult Chat()
+        {
+            return View();
+        }
     }
 }

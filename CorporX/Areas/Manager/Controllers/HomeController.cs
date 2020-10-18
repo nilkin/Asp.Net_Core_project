@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using CorporX.Filters;
 using CorporX.Data.Models.Entities;
-using System.Linq;
 
 namespace CorporX.Areas.Manager.Controllers
 {
@@ -18,6 +17,11 @@ namespace CorporX.Areas.Manager.Controllers
         }
         public IActionResult Index()
         {
+         
+            if (user==null)
+            {
+                return RedirectToAction("login", "account", new { area = "manager" });
+            }
             var profile = _context.Users.Find(user.Id);
 
             return View(profile);

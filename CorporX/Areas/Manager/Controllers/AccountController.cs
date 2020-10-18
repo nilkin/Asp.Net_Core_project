@@ -8,13 +8,16 @@ using CorporX.Filters;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CryptoHelper;
+using Microsoft.AspNetCore.Identity;
 
 namespace CorporX.Areas.Manager.Controllers
 {
+    [TypeFilter(typeof(Profile))]
     [Area("Manager")]
     public class AccountController : Controller
     {
         private readonly CorporxDbContext _context;
+        private User user => RouteData.Values["User"] as User;
         public AccountController(CorporxDbContext context)
         {
             _context = context;
@@ -35,7 +38,6 @@ namespace CorporX.Areas.Manager.Controllers
                     if (Crypto.VerifyHashedPassword(user.Password, model.Password))
                     {
                         user.Token = Crypto.HashPassword(DateTime.Now.ToString());
-                        //user.Token = Guid.NewGuid().ToString();
 
                         _context.SaveChanges();
 
@@ -82,6 +84,14 @@ namespace CorporX.Areas.Manager.Controllers
                 return RedirectToAction("login", "account", new { area = "manager" });
             }
             return View(model);
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            var profile = _context.Users.Find(user.Id);
+            profile.Token = null;
+            _context.SaveChanges();
+            return Redirect("/");
         }
     }
 }

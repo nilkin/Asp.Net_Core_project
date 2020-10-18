@@ -159,7 +159,7 @@
                             <div class="comment-respond">
                                 <h5 class="comment-reply-title">Leave a Reply</h5>
                                 <p class="comment-notes">Your email address will not be published. Required fields are marked</p>
-                                <form method="post" class="comment-form row">
+                                <form asp-action="chat" method="post" class="comment-form row">
                                     <div class="form-group col-md-4">
                                         <input class="form-control" type="text" placeholder="Name">
                                     </div>
@@ -173,7 +173,7 @@
                                         <textarea class="form-control" rows="8" placeholder="Comment"></textarea>
                                     </div>
                                     <div class="form-submit col-md-12">
-                                        <button type="button" id="sendButton" class="btn secondary-solid-btn" >Post Comment</button>
+                                        <button type="button" id="sendButton" class="btn secondary-solid-btn">Post Comment</button>
                                     </div>
                                 </form>
                             </div>
@@ -224,7 +224,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="~/Assets/lib/sweetalert/sweetalert.min.js"></script>
-    <script src="~/Assets/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
     <script src="~/Assets/lib/microsoft/signalr/dist/browser/signalr.js"></script>
     <script src="~/Assets/js/comment.js"></script>
 }

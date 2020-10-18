@@ -9,9 +9,9 @@ namespace CorporX.Hubs
 {
     public class CommentHub:Hub
     {
-        public async Task SendComment(Comment comment)
+        public async Task SendMessage(Comment comment)
         {
-            await this.Clients.All.SendAsync("Send", comment);
+            await Clients.All.SendAsync("Send", comment);
         }
     }
 }
