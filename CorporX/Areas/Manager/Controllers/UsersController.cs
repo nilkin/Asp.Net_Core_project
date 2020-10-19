@@ -108,12 +108,8 @@ namespace CorporX.Areas.Manager.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Lastname,Email,Password,Token,Photo,Position,Upload")] User user)
+        public async Task<IActionResult> Edit(User user)
         {
-            if (id != user.Id)
-            {
-                return NotFound();
-            }
             if (user.Upload == null)
             {
                 ModelState.AddModelError("Upload", "Photo is required");
@@ -134,16 +130,16 @@ namespace CorporX.Areas.Manager.Controllers
             {
                 try
                 {
+                    var dbuser = await _context.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
                     if (user.Photo==null)
                     {
                         user.Photo = _fileManager.Upload(user.Upload);
                         _context.Update(user).State = EntityState.Modified;
                         await _context.SaveChangesAsync();
                     }
-                    _fileManager.Delete(user.Photo);
-                    user.Photo = _fileManager.Upload(user.Upload);
-                    _context.Update(user).State = EntityState.Modified;
-                    await _context.SaveChangesAsync();
+                    _fileManager.Delete(dbuser.Photo);
+                    dbuser.Photo = _fileManager.Upload(user.Upload);
+                    _context.SaveChanges();
                 }
                 catch (DbUpdateConcurrencyException)
                 {

@@ -90,7 +90,7 @@ namespace CorporX.Areas.Manager.Controllers
         {
             var profile = _context.Users.Find(user.Id);
             profile.Token = null;
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
             return Redirect("/");
         }
     }
